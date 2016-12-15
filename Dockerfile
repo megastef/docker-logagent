@@ -3,7 +3,8 @@ MAINTAINER Simon Erhardt <me+docker@rootlogin.ch>
 
 ENV LOG_URL="https://logsene-receiver.sematext.com" \
   LOG_INDEX="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" \
-  LOG_GLOB=""
+  LOG_GLOB="" \
+  LOG_PATTERNS=""
 
 RUN apk add --update \
   bash \
@@ -12,6 +13,8 @@ RUN apk add --update \
 
 # Install sematext logagent
 RUN npm install -g @sematext/logagent
+
+COPY patterns.yml /opt/logagent/patterns.yml
 
 COPY bin/run.sh /opt/logagent/run.sh
 RUN chmod +x /opt/logagent/run.sh

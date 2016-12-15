@@ -23,6 +23,10 @@ options:
   geoipEnabled: true
   diskBufferDir: /tmp/sematext-logagent
 
+parser:
+  patternFiles:
+    - /opt/logagent/patterns.yml
+
 input:
   files:
 EOF
