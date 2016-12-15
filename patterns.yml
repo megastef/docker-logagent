@@ -69,6 +69,9 @@ patterns:
     - type: confluence
       regex: !!js/regexp /^([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})[,0-9]{4} (DEBUG|INFO|WARN|ERROR) \[(.*)\] \[([a-zA-Z.]*)\] (.*)/
       fields: [ts, severity, application, method, message]
+    - type: confluence-multiline
+      regex: !!js/regexp /^([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})[,0-9]{4} (DEBUG|INFO|WARN|ERROR) \[(.*)\] \[([a-zA-Z.]*)\] (.*)/s
+      fields: [ts, severity, application, method, message]
 
  - # kubernetes hyperkube
   sourceName: !!js/regexp /hyperkube/
