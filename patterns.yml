@@ -72,7 +72,16 @@ patterns:
     - type: confluence-multiline
       regex: !!js/regexp /^([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})[,0-9]{4} (DEBUG|INFO|WARN|ERROR) \[(.*)\] \[([a-zA-Z.]*)\] (.*)/s
       fields: [ts, severity, application, method, message]
-
+ - # jrebel pattern
+  match:
+    - type: jrebel
+      regex: !!js/regexp /^\[([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3})] (DEBUG|INFO|WARN|ERROR) \[([^\]]+)\] \[([^\]]+)\] - (.*)/
+      fields: [ts, severity, logger, thread, message]
+      dateFormat: yyyy-MM-dd HH:mm:ss.SSS
+    - type: jrebel-multiline
+      regex: !!js/regexp /^\[([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3})] (DEBUG|INFO|WARN|ERROR) \[([^\]]+)\] \[([^\]]+)\] - (.*)/s
+      fields: [ts, severity, logger, thread, message]
+      dateFormat: yyyy-MM-dd HH:mm:ss.SSS
  - # kubernetes hyperkube
   sourceName: !!js/regexp /hyperkube/
   match:
