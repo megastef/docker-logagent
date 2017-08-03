@@ -1,7 +1,7 @@
 FROM node:6-alpine
-MAINTAINER Simon Erhardt <me+docker@rootlogin.ch>
+MAINTAINER Martin Achtman <martin.achtman@sbb.ch>
 
-ENV LOG_URL="https://logsene-receiver.sematext.com" \
+ENV LOG_URL="https://logsene-receiver.eu.sematext.com" \
   LOG_INDEX="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" \
   LOG_GLOB="" \
   LOG_PATTERNS=""
