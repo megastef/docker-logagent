@@ -40,9 +40,10 @@ done <<< "$LOG_GLOB"
 cat >> /etc/sematext/logagent.conf <<EOF
 output:
   # index logs in Elasticsearch or Logsene
-  elasticsearch:
+  logsene:
+    module: elasticsearch
     url: ${LOG_URL}
     index: ${LOG_INDEX}
 EOF
 
-exec /usr/local/bin/logagent -c /etc/sematext/logagent.conf
+exec /usr/local/bin/logagent -c /etc/sematext/logagent.conf ${LA_ARGUMENTS}
